@@ -1,7 +1,14 @@
-const mongoose = require('mongoose');
-const crypto = require('crypto');
-// user schema
-const userScheama = new mongoose.Schema(
+//=====[DESIGNING THE USER SCHEMA AND MODEL FOR AUTHENTICATION]=============================================
+
+import { Schema, model } from 'mongoose';
+
+// - THE CRYPTO MODULE PROVIDES CRYPTOGRAPHIC FUNCTIONALITY
+
+import { createHmac } from 'crypto';
+
+//===[DESIGNING THE USER SCHEMA]======================================================================
+
+const userScheama = new Schema(
   {
     email: {
       type: String,
@@ -22,7 +29,7 @@ const userScheama = new mongoose.Schema(
     salt: String,
     role: {
       type: String,
-      default: 'subscriber'
+      default: 'user'
     },
     resetPasswordLink: {
       data: String,
@@ -55,8 +62,7 @@ userScheama.methods = {
   encryptPassword: function(password) {
     if (!password) return '';
     try {
-      return crypto
-        .createHmac('sha1', this.salt)
+      return createHmac('sha1', this.salt)
         .update(password)
         .digest('hex');
     } catch (err) {
@@ -69,8 +75,7 @@ userScheama.methods = {
   }
 };
 
-module.exports = mongoose.model('User', userScheama);
-
+export default model('User', userScheama);
 
 
 
