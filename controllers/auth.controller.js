@@ -1,15 +1,15 @@
 //=====[AUTHENTICATION CONTROLLER]=====================================================================================
 
-// import User, { findOne, findById } from '../models/auth.model';
+import User, { findOne, findById } from '../models/auth.model';
 
-// import { extend } from 'lodash';
-// import fetch from 'node-fetch';
+import { extend } from 'lodash';
+import fetch from 'node-fetch';
 
-// import { validationResult } from "express-validator";
-// import { sign, verify, decode } from 'jsonwebtoken';
-// import expressJwt from 'express-jwt';
+import { validationResult } from "express-validator";
+import { sign, verify, decode } from 'jsonwebtoken';
+import expressJwt from 'express-jwt';
 // import expressJWT from 'express-jwt';
-// import { errorHandler } from '../helpers/dbErrorHandling';
+import { errorHandler } from '../helpers/dbErrorHandling';
 
 // import { setApiKey, send } from '@sendgrid/mail';
 // setApiKey(process.env.MAIL_KEY);

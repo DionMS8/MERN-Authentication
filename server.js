@@ -1,20 +1,20 @@
-import express from "express"
-import morgan from "morgan"
-import bodyParser from 'body-parser'
-import cors from "cors"
-import dotenv from "dotenv"
+import express from "express";
+import morgan from "morgan";
+import bodyParser from 'body-parser';
+import cors from "cors";
+import dotenv from "dotenv";
 
-// import connectDB from './config/db'
+import connectDB from "./config/db";
 
-// Config dotenv
+// CONFIGURING DOTENV
 dotenv.config({
     path: './config/config.env'
 })
 
 const app = express()
 
-// Connect to database
-// connectDB();
+// CONNECTING TO THE DATABASE
+connectDB();
 
 
 //===[SETTING UP MIDDLEWARE]===========================================================================================//
